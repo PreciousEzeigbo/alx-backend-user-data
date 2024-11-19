@@ -12,8 +12,3 @@ class User(Base):
     hashed_password = Column(String(250), nullable=False)
     session_id = Column(String(250), nullable=True)
     reset_token = Column(String(250), nullable=True)
-
-# Example: Create an engine and bind the metadata (optional for testing)
-if __name__ == "__main__":
-    engine = create_engine("sqlite:///:memory:")
-    Base.metadata.create_all(engine)
