@@ -43,12 +43,9 @@ class DB:
         try:
             # create new user object
             new_user = User(email=email, hashed_password=hashed_password)
-            # add the user to the session
-            self._session.add(new_user)
-            # commit transaction
-            self._session.commit()
+            self._session.add(new_user)  # add the user to the session
+            self._session.commit()  # commit transaction
         except Exception:
-            # Rollback the session on error
-            self._session.rollback()
+            self._session.rollback()  # Rollback the session on error
             new_user = None
         return new_user
